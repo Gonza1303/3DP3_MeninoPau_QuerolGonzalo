@@ -1,107 +1,268 @@
 fileFormatVersion: 2
 guid: 9ca7c91b1f137ea4b911379dead2d130
-timeCreated: 1479828673
-licenseType: Free
 ModelImporter:
-  serializedVersion: 19
-  fileIDToRecycleName:
-    100000: AttachPoint_Fuse
-    100002: Bn_Body
-    100004: Bn_Heel_L
-    100006: Bn_Heel_R
-    100008: Bn_Leg_L
-    100010: Bn_Leg_R
-    100012: Bn_Toe_L
-    100014: Bn_Toe_R
-    100016: Bn_Wind
-    100018: //RootNode
-    100020: Bobomb
-    100022: BobOmb_Collision
-    100024: Control_Body
-    100026: Control_COG
-    100028: Control_Foot_L
-    100030: Control_Foot_L001
-    100032: Control_Leg_L
-    100034: Control_Leg_R
-    100036: Control_Master
-    100038: Control_Toe_L
-    100040: Control_Toe_L001
-    100042: Control_Wind
-    100044: Helper_Body
-    100046: Helper_Heel_L
-    100048: Helper_Heel_R
-    100050: Helper_Leg_L
-    100052: Helper_Leg_R
-    100054: Helper_Toe_L
-    100056: Helper_Toe_R
-    100058: Helper_Wind
-    100060: IK_Leg_L
-    100062: IK_Leg_R
-    400000: AttachPoint_Fuse
-    400002: Bn_Body
-    400004: Bn_Heel_L
-    400006: Bn_Heel_R
-    400008: Bn_Leg_L
-    400010: Bn_Leg_R
-    400012: Bn_Toe_L
-    400014: Bn_Toe_R
-    400016: Bn_Wind
-    400018: //RootNode
-    400020: Bobomb
-    400022: BobOmb_Collision
-    400024: Control_Body
-    400026: Control_COG
-    400028: Control_Foot_L
-    400030: Control_Foot_L001
-    400032: Control_Leg_L
-    400034: Control_Leg_R
-    400036: Control_Master
-    400038: Control_Toe_L
-    400040: Control_Toe_L001
-    400042: Control_Wind
-    400044: Helper_Body
-    400046: Helper_Heel_L
-    400048: Helper_Heel_R
-    400050: Helper_Leg_L
-    400052: Helper_Leg_R
-    400054: Helper_Toe_L
-    400056: Helper_Toe_R
-    400058: Helper_Wind
-    400060: IK_Leg_L
-    400062: IK_Leg_R
-    2300000: BobOmb_Collision
-    3300000: BobOmb_Collision
-    4300000: Bobomb
-    4300002: BobOmb_Collision
-    7400000: Walk
-    7400002: Idle
-    7400004: Turn
-    9500000: //RootNode
-    13700000: Bobomb
+  serializedVersion: 24200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: AttachPoint_Fuse
+  - first:
+      1: 100002
+    second: Bn_Body
+  - first:
+      1: 100004
+    second: Bn_Heel_L
+  - first:
+      1: 100006
+    second: Bn_Heel_R
+  - first:
+      1: 100008
+    second: Bn_Leg_L
+  - first:
+      1: 100010
+    second: Bn_Leg_R
+  - first:
+      1: 100012
+    second: Bn_Toe_L
+  - first:
+      1: 100014
+    second: Bn_Toe_R
+  - first:
+      1: 100016
+    second: Bn_Wind
+  - first:
+      1: 100018
+    second: //RootNode
+  - first:
+      1: 100020
+    second: Bobomb
+  - first:
+      1: 100022
+    second: BobOmb_Collision
+  - first:
+      1: 100024
+    second: Control_Body
+  - first:
+      1: 100026
+    second: Control_COG
+  - first:
+      1: 100028
+    second: Control_Foot_L
+  - first:
+      1: 100030
+    second: Control_Foot_L001
+  - first:
+      1: 100032
+    second: Control_Leg_L
+  - first:
+      1: 100034
+    second: Control_Leg_R
+  - first:
+      1: 100036
+    second: Control_Master
+  - first:
+      1: 100038
+    second: Control_Toe_L
+  - first:
+      1: 100040
+    second: Control_Toe_L001
+  - first:
+      1: 100042
+    second: Control_Wind
+  - first:
+      1: 100044
+    second: Helper_Body
+  - first:
+      1: 100046
+    second: Helper_Heel_L
+  - first:
+      1: 100048
+    second: Helper_Heel_R
+  - first:
+      1: 100050
+    second: Helper_Leg_L
+  - first:
+      1: 100052
+    second: Helper_Leg_R
+  - first:
+      1: 100054
+    second: Helper_Toe_L
+  - first:
+      1: 100056
+    second: Helper_Toe_R
+  - first:
+      1: 100058
+    second: Helper_Wind
+  - first:
+      1: 100060
+    second: IK_Leg_L
+  - first:
+      1: 100062
+    second: IK_Leg_R
+  - first:
+      4: 400000
+    second: AttachPoint_Fuse
+  - first:
+      4: 400002
+    second: Bn_Body
+  - first:
+      4: 400004
+    second: Bn_Heel_L
+  - first:
+      4: 400006
+    second: Bn_Heel_R
+  - first:
+      4: 400008
+    second: Bn_Leg_L
+  - first:
+      4: 400010
+    second: Bn_Leg_R
+  - first:
+      4: 400012
+    second: Bn_Toe_L
+  - first:
+      4: 400014
+    second: Bn_Toe_R
+  - first:
+      4: 400016
+    second: Bn_Wind
+  - first:
+      4: 400018
+    second: //RootNode
+  - first:
+      4: 400020
+    second: Bobomb
+  - first:
+      4: 400022
+    second: BobOmb_Collision
+  - first:
+      4: 400024
+    second: Control_Body
+  - first:
+      4: 400026
+    second: Control_COG
+  - first:
+      4: 400028
+    second: Control_Foot_L
+  - first:
+      4: 400030
+    second: Control_Foot_L001
+  - first:
+      4: 400032
+    second: Control_Leg_L
+  - first:
+      4: 400034
+    second: Control_Leg_R
+  - first:
+      4: 400036
+    second: Control_Master
+  - first:
+      4: 400038
+    second: Control_Toe_L
+  - first:
+      4: 400040
+    second: Control_Toe_L001
+  - first:
+      4: 400042
+    second: Control_Wind
+  - first:
+      4: 400044
+    second: Helper_Body
+  - first:
+      4: 400046
+    second: Helper_Heel_L
+  - first:
+      4: 400048
+    second: Helper_Heel_R
+  - first:
+      4: 400050
+    second: Helper_Leg_L
+  - first:
+      4: 400052
+    second: Helper_Leg_R
+  - first:
+      4: 400054
+    second: Helper_Toe_L
+  - first:
+      4: 400056
+    second: Helper_Toe_R
+  - first:
+      4: 400058
+    second: Helper_Wind
+  - first:
+      4: 400060
+    second: IK_Leg_L
+  - first:
+      4: 400062
+    second: IK_Leg_R
+  - first:
+      23: 2300000
+    second: BobOmb_Collision
+  - first:
+      33: 3300000
+    second: BobOmb_Collision
+  - first:
+      43: 4300000
+    second: Bobomb
+  - first:
+      43: 4300002
+    second: BobOmb_Collision
+  - first:
+      74: 7400000
+    second: Walk
+  - first:
+      74: 7400002
+    second: Idle
+  - first:
+      74: 7400004
+    second: Turn
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Bobomb
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 12 - Default
+    second: {fileID: 2100000, guid: 964719ca44cfac44aac345435807f393, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: f07748ccf20651d44a7c9dbd3ba6abf1, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
       name: Walk
       takeName: Take 001
+      internalID: 0
       firstFrame: 100
       lastFrame: 160
       wrapMode: 0
@@ -194,6 +355,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Idle
       takeName: Take 001
+      internalID: 0
       firstFrame: 200
       lastFrame: 300
       wrapMode: 0
@@ -286,6 +448,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Turn
       takeName: Take 001
+      internalID: 0
       firstFrame: 300
       lastFrame: 340
       wrapMode: 0
@@ -381,25 +544,52 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 0
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -409,11 +599,19 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

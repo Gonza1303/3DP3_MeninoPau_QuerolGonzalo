@@ -1,59 +1,119 @@
 fileFormatVersion: 2
 guid: afa802dc6902dc243bd13c2ceee8ac01
-timeCreated: 1479828674
-licenseType: Free
 ModelImporter:
-  serializedVersion: 19
-  fileIDToRecycleName:
-    100000: Bn_Core
-    100002: Bn_Mid
-    100004: Bn_Tip
-    100006: CannonBase
-    100008: CannonTurret
-    100010: //RootNode
-    100012: Control_Turret
-    100014: Control_TurretMotion
-    100016: FireTarget
-    400000: Bn_Core
-    400002: Bn_Mid
-    400004: Bn_Tip
-    400006: CannonBase
-    400008: CannonTurret
-    400010: //RootNode
-    400012: Control_Turret
-    400014: Control_TurretMotion
-    400016: FireTarget
-    2300000: CannonBase
-    3300000: CannonBase
-    4300000: CannonTurret
-    4300002: CannonBase
-    7400000: Fire
-    9500000: //RootNode
-    13700000: CannonTurret
+  serializedVersion: 24200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Bn_Core
+  - first:
+      1: 100002
+    second: Bn_Mid
+  - first:
+      1: 100004
+    second: Bn_Tip
+  - first:
+      1: 100006
+    second: CannonBase
+  - first:
+      1: 100008
+    second: CannonTurret
+  - first:
+      1: 100010
+    second: //RootNode
+  - first:
+      1: 100012
+    second: Control_Turret
+  - first:
+      1: 100014
+    second: Control_TurretMotion
+  - first:
+      1: 100016
+    second: FireTarget
+  - first:
+      4: 400000
+    second: Bn_Core
+  - first:
+      4: 400002
+    second: Bn_Mid
+  - first:
+      4: 400004
+    second: Bn_Tip
+  - first:
+      4: 400006
+    second: CannonBase
+  - first:
+      4: 400008
+    second: CannonTurret
+  - first:
+      4: 400010
+    second: //RootNode
+  - first:
+      4: 400012
+    second: Control_Turret
+  - first:
+      4: 400014
+    second: Control_TurretMotion
+  - first:
+      4: 400016
+    second: FireTarget
+  - first:
+      23: 2300000
+    second: CannonBase
+  - first:
+      33: 3300000
+    second: CannonBase
+  - first:
+      43: 4300000
+    second: CannonTurret
+  - first:
+      43: 4300002
+    second: CannonBase
+  - first:
+      74: 7400000
+    second: Fire
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: CannonTurret
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cannon
+    second: {fileID: 2100000, guid: bf7005e7d70c5e241a46c3cc8d1b7f8d, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
       name: Fire
       takeName: Take 001
+      internalID: 0
       firstFrame: 100
       lastFrame: 130
       wrapMode: 0
@@ -103,25 +163,52 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 0
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -131,11 +218,19 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

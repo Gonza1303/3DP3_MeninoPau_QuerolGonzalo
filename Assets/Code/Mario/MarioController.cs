@@ -10,6 +10,9 @@ public class MarioController : MonoBehaviour
 
     public float m_WalkSpeed = 4.0f;
     public float m_RunSpeed = 8.0f;
+    public float m_RotationLerpPct = 10.0f;
+    public float m_VerticalSpeed = 2.0f;
+    public float m_JumpSpeed = 10.0f;
     
     [Header("Input")] 
     public Key m_RightKeyControl = Key.D;
@@ -17,6 +20,12 @@ public class MarioController : MonoBehaviour
     public Key m_ForwardKeyControl = Key.W;
     public Key m_BackwardKeyControl = Key.S;
     public Key m_RunKeyControl = Key.LeftShift;
+    public Key m_JumpKeyControl = Key.Space;
+    
+    [Header("Angle Locking")]
+    public Key m_DebugLockAngleKeyCode = Key.I;
+    public Key m_DebugLockCursorKeyCode = Key.O;
+    public bool m_AngleLocked;
     
     void Awake()
     {
@@ -26,11 +35,21 @@ public class MarioController : MonoBehaviour
 
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
     }
     
     void Update()
     {
+        
+        if (Keyboard.current[m_DebugLockAngleKeyCode].wasPressedThisFrame)
+        {
+            m_AngleLocked = !m_AngleLocked;
+        }
+        if (Keyboard.current[m_DebugLockCursorKeyCode].wasPressedThisFrame)
+        {
+            Cursor.lockState = Cursor.lockState != CursorLockMode.Locked ? CursorLockMode.Locked : CursorLockMode.None;
+        }
+        
         Vector3 l_Right = m_Camera.transform.right;
         Vector3 l_Forward = m_Camera.transform.forward;
         l_Right.y = 0.0f;
@@ -48,10 +67,12 @@ public class MarioController : MonoBehaviour
             l_Direction = l_Forward;
         else if (Keyboard.current[m_BackwardKeyControl].isPressed)
             l_Direction = -l_Forward;
-
+        
         bool l_IsMoving = l_Direction.sqrMagnitude > 0.5f;
         float l_Speed = m_WalkSpeed;
         float l_AnimatorSpeed = 0.0f;
+        l_Direction.Normalize();
+        
         if (l_IsMoving)
         {
             if(Keyboard.current[m_RunKeyControl].isPressed)
@@ -63,11 +84,24 @@ public class MarioController : MonoBehaviour
             {
                 l_AnimatorSpeed = 0.3f;
             }
+            Quaternion l_DesiredRotation = Quaternion.LookRotation(l_Direction);
+            transform.rotation = Quaternion.Lerp(transform.rotation, l_DesiredRotation, m_RotationLerpPct * Time.deltaTime);
         }
+        if(Keyboard.current[m_JumpKeyControl].wasPressedThisFrame)
+        {
+            m_VerticalSpeed = m_JumpSpeed;
+        }
+
         m_Animator.SetFloat("Speed", l_AnimatorSpeed);
-        l_Direction.Normalize();
 
         l_Direction *= l_Speed * Time.deltaTime;
-        m_CharacterController.Move(l_Direction);
+        m_VerticalSpeed += Physics.gravity.y * Time.deltaTime;
+        l_Direction.y = m_VerticalSpeed * Time.deltaTime;
+        
+        CollisionFlags l_CollisionFlags = m_CharacterController.Move(l_Direction);
+        if((l_CollisionFlags & CollisionFlags.Below) != 0 || ((l_CollisionFlags & CollisionFlags.Above) != 0 && m_VerticalSpeed > 0))
+        {
+            m_VerticalSpeed = 0.0f;
+        }
     }
 }

@@ -1,52 +1,105 @@
 fileFormatVersion: 2
 guid: 88a9701804919fa4b98d23dc8608cd46
-timeCreated: 1479828673
-licenseType: Free
 ModelImporter:
-  serializedVersion: 19
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: Shard1
-    100004: Shard2
-    100006: Shard3
-    100008: Shard4
-    400000: //RootNode
-    400002: Shard1
-    400004: Shard2
-    400006: Shard3
-    400008: Shard4
-    2300000: Shard1
-    2300002: Shard2
-    2300004: Shard3
-    2300006: Shard4
-    3300000: Shard1
-    3300002: Shard2
-    3300004: Shard3
-    3300006: Shard4
-    4300000: Shard1
-    4300002: Shard2
-    4300004: Shard3
-    4300006: Shard4
+  serializedVersion: 24200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: Shard1
+  - first:
+      1: 100004
+    second: Shard2
+  - first:
+      1: 100006
+    second: Shard3
+  - first:
+      1: 100008
+    second: Shard4
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: Shard1
+  - first:
+      4: 400004
+    second: Shard2
+  - first:
+      4: 400006
+    second: Shard3
+  - first:
+      4: 400008
+    second: Shard4
+  - first:
+      23: 2300000
+    second: Shard1
+  - first:
+      23: 2300002
+    second: Shard2
+  - first:
+      23: 2300004
+    second: Shard3
+  - first:
+      23: 2300006
+    second: Shard4
+  - first:
+      33: 3300000
+    second: Shard1
+  - first:
+      33: 3300002
+    second: Shard2
+  - first:
+      33: 3300004
+    second: Shard3
+  - first:
+      33: 3300006
+    second: Shard4
+  - first:
+      43: 4300000
+    second: Shard1
+  - first:
+      43: 4300002
+    second: Shard2
+  - first:
+      43: 4300004
+    second: Shard3
+  - first:
+      43: 4300006
+    second: Shard4
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: c090ff322ec33bc4b884702c74ae8f97, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -54,25 +107,52 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 0
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -82,11 +162,19 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 0
   humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
