@@ -11,12 +11,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea68b385-346f-431f-a10d-155b215b0cd1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.3DP3_MeninoPau_QuerolGonzalo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.3DP3_MeninoPau_QuerolGonzalo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Coin.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Coin.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/CoinRotation.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/CoinRotation.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Mario/MarioController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Mario/MarioController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_C:/Users/Gonzalo/Unity/3DP3_MeninoPau_QuerolGonzalo" value="3MO5lZcyJsNwKyXBDE46xup71I7" />
+    </persistenceIdMap>
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="89" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -27,61 +41,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000043941026395" />
-      <entry key="S2" value="1.0457844023316043" />
-      <entry key="S5" value="1.2912641409903" />
-      <entry key="S10" value="1.5396889298385692" />
-      <entry key="S30" value="1.8141688893277896" />
-      <entry key="S60" value="1.9023130772230832" />
-      <entry key="M2" value="1.9499016144965138" />
-      <entry key="M5" value="1.9796511448098166" />
-      <entry key="M10" value="1.9897732794988034" />
-      <entry key="M15" value="1.9931705125512131" />
-      <entry key="M30" value="1.9965794060441011" />
-      <entry key="H1" value="1.9982882379574054" />
-      <entry key="H2" value="1.9991437523987252" />
-      <entry key="H4" value="1.999571784515112" />
-      <entry key="D1" value="1.9999286180152618" />
-      <entry key="W1" value="1.9999898022616325" />
+      <entry key="MS100" value="1.0000000023734128" />
+      <entry key="MS500" value="1.0325685122247943" />
+      <entry key="S2" value="1.7142068840014" />
+      <entry key="S5" value="2.3247556055544316" />
+      <entry key="S10" value="2.627724523308963" />
+      <entry key="S30" value="2.8672961163180637" />
+      <entry key="S60" value="2.93251161112932" />
+      <entry key="M2" value="2.96915413655843" />
+      <entry key="M5" value="3.2168107332857483" />
+      <entry key="M10" value="3.953325168724807" />
+      <entry key="M15" value="4.540396492608988" />
+      <entry key="M30" value="5.483642470573739" />
+      <entry key="H1" value="6.152220608188395" />
+      <entry key="H2" value="6.550970537427975" />
+      <entry key="H4" value="6.768821194239791" />
+      <entry key="D1" value="6.960510585414051" />
+      <entry key="W1" value="6.994334697172791" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.448908652612277E-70" />
-      <entry key="MS500" value="1.0769813958052039E-14" />
-      <entry key="S2" value="3.2214548602853857E-4" />
-      <entry key="S5" value="0.04010705929884076" />
-      <entry key="S10" value="0.2002674693974055" />
-      <entry key="S30" value="0.585064126603057" />
-      <entry key="S60" value="0.7648948467619958" />
-      <entry key="M2" value="0.8745826700558362" />
-      <entry key="M5" value="0.9478079496919506" />
-      <entry key="M10" value="0.9735542869773366" />
-      <entry key="M15" value="0.9822908885354533" />
-      <entry key="M30" value="0.9911058916863796" />
-      <entry key="H1" value="0.9955430134787644" />
-      <entry key="H2" value="0.9977690180992614" />
-      <entry key="H4" value="0.9988838861946175" />
-      <entry key="D1" value="0.9998138944657445" />
-      <entry key="W1" value="0.9999734113743354" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="3.147784104828542E-186" />
+      <entry key="S5" value="6.481778654669547E-75" />
+      <entry key="S10" value="9.292799758232922E-38" />
+      <entry key="S30" value="6.682539987501657E-13" />
+      <entry key="S60" value="1.1439270257167773E-6" />
+      <entry key="M2" value="0.0015085013428090617" />
+      <entry key="M5" value="0.11265603798463313" />
+      <entry key="M10" value="0.47461910157126685" />
+      <entry key="M15" value="0.7665897759028967" />
+      <entry key="M30" value="1.2382013791026978" />
+      <entry key="H1" value="1.5736543009331783" />
+      <entry key="H2" value="1.7740642231494677" />
+      <entry key="H4" value="1.883647289720613" />
+      <entry key="D1" value="1.980120329240385" />
+      <entry key="W1" value="1.9971478727834537" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.1082040073496412E-25" />
-      <entry key="MS500" value="1.1309152816919415E-5" />
-      <entry key="S2" value="0.08910868302763626" />
-      <entry key="S5" value="0.6028471809039835" />
-      <entry key="S10" value="1.2463659802920122" />
-      <entry key="S30" value="2.1857399558895443" />
-      <entry key="S60" value="2.5519371403727695" />
-      <entry key="M2" value="2.764457304078453" />
-      <entry key="M5" value="2.9028362311158804" />
-      <entry key="M10" value="2.9509107257879834" />
-      <entry key="M15" value="2.967159822989606" />
-      <entry key="M30" value="2.9835226006716105" />
-      <entry key="H1" value="2.991746913476398" />
-      <entry key="H2" value="2.9958698526000576" />
-      <entry key="H4" value="2.9979340243357586" />
-      <entry key="D1" value="2.9996555453708136" />
-      <entry key="W1" value="2.9999507891249593" />
+      <entry key="MS100" value="1.265543824410038E-5" />
+      <entry key="MS500" value="0.12086240539779591" />
+      <entry key="S2" value="1.0267233668146674" />
+      <entry key="S5" value="1.8610939568844194" />
+      <entry key="S10" value="2.3404124815006266" />
+      <entry key="S30" value="2.755522316702486" />
+      <entry key="S60" value="2.8743422839472803" />
+      <entry key="M2" value="2.9409258365972883" />
+      <entry key="M5" value="3.315765409132379" />
+      <entry key="M10" value="4.418381102210318" />
+      <entry key="M15" value="5.299163919137263" />
+      <entry key="M30" value="6.716767725131037" />
+      <entry key="H1" value="7.72292332703912" />
+      <entry key="H2" value="8.323435554724917" />
+      <entry key="H4" value="8.651635154362271" />
+      <entry key="D1" value="8.940487079055936" />
+      <entry key="W1" value="8.991461897286907" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -92,6 +106,23 @@
   &quot;fromUser&quot;: false
 }</component>
   <component name="ProjectId" id="3MNHi6zHxBR0qEUZOVj1aXkSYio" />
+  <component name="ProjectSessionTemplates">
+    <option name="panelTemplate">
+      <template>
+        <option name="ensembleEnabled" value="false" />
+        <option name="modeId" value="Agent" />
+        <option name="model">
+          <model>
+            <option name="modelType" value="builtin_id" />
+            <option name="modelValue" value="auto" />
+          </model>
+        </option>
+        <option name="targetType" value="BACKGROUND" />
+        <option name="worktreeMode" value="WORKSPACE" />
+      </template>
+    </option>
+    <option name="version" value="1" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -107,6 +138,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "cidr.known.project.marker": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
+    "copilot.chat.legacySessionMetadata.migrated": "true",
     "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",

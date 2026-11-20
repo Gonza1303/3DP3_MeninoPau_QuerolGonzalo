@@ -13,6 +13,7 @@ public class MarioController : MonoBehaviour
     public float m_RotationLerpPct = 10.0f;
     public float m_VerticalSpeed = 2.0f;
     public float m_JumpSpeed = 10.0f;
+    public bool m_CanJump = true;
     
     [Header("Input")] 
     public Key m_RightKeyControl = Key.D;
@@ -87,9 +88,10 @@ public class MarioController : MonoBehaviour
             Quaternion l_DesiredRotation = Quaternion.LookRotation(l_Direction);
             transform.rotation = Quaternion.Lerp(transform.rotation, l_DesiredRotation, m_RotationLerpPct * Time.deltaTime);
         }
-        if(Keyboard.current[m_JumpKeyControl].wasPressedThisFrame)
+        if(Keyboard.current[m_JumpKeyControl].wasPressedThisFrame && m_CanJump)
         {
             m_VerticalSpeed = m_JumpSpeed;
+            m_CanJump = false;
         }
 
         m_Animator.SetFloat("Speed", l_AnimatorSpeed);
@@ -99,9 +101,13 @@ public class MarioController : MonoBehaviour
         l_Direction.y = m_VerticalSpeed * Time.deltaTime;
         
         CollisionFlags l_CollisionFlags = m_CharacterController.Move(l_Direction);
-        if((l_CollisionFlags & CollisionFlags.Below) != 0 || ((l_CollisionFlags & CollisionFlags.Above) != 0 && m_VerticalSpeed > 0))
+        if((l_CollisionFlags & CollisionFlags.Below) != 0)
         {
             m_VerticalSpeed = 0.0f;
+            m_CanJump = true;
         }
+        else if((l_CollisionFlags & CollisionFlags.Above) != 0 && m_VerticalSpeed > 0)
+            m_VerticalSpeed = 0.0f;
+
     }
 }
