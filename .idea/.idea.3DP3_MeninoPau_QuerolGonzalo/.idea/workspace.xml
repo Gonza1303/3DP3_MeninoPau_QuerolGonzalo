@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
+  <component name="CMakeSettings">
+    <configurations />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="ea68b385-346f-431f-a10d-155b215b0cd1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,10 +25,72 @@
     <commands />
     <urls />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5,
-  "fromUser": false
-}]]></component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0000043941026395" />
+      <entry key="S2" value="1.0457844023316043" />
+      <entry key="S5" value="1.2912641409903" />
+      <entry key="S10" value="1.5396889298385692" />
+      <entry key="S30" value="1.8141688893277896" />
+      <entry key="S60" value="1.9023130772230832" />
+      <entry key="M2" value="1.9499016144965138" />
+      <entry key="M5" value="1.9796511448098166" />
+      <entry key="M10" value="1.9897732794988034" />
+      <entry key="M15" value="1.9931705125512131" />
+      <entry key="M30" value="1.9965794060441011" />
+      <entry key="H1" value="1.9982882379574054" />
+      <entry key="H2" value="1.9991437523987252" />
+      <entry key="H4" value="1.999571784515112" />
+      <entry key="D1" value="1.9999286180152618" />
+      <entry key="W1" value="1.9999898022616325" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.448908652612277E-70" />
+      <entry key="MS500" value="1.0769813958052039E-14" />
+      <entry key="S2" value="3.2214548602853857E-4" />
+      <entry key="S5" value="0.04010705929884076" />
+      <entry key="S10" value="0.2002674693974055" />
+      <entry key="S30" value="0.585064126603057" />
+      <entry key="S60" value="0.7648948467619958" />
+      <entry key="M2" value="0.8745826700558362" />
+      <entry key="M5" value="0.9478079496919506" />
+      <entry key="M10" value="0.9735542869773366" />
+      <entry key="M15" value="0.9822908885354533" />
+      <entry key="M30" value="0.9911058916863796" />
+      <entry key="H1" value="0.9955430134787644" />
+      <entry key="H2" value="0.9977690180992614" />
+      <entry key="H4" value="0.9988838861946175" />
+      <entry key="D1" value="0.9998138944657445" />
+      <entry key="W1" value="0.9999734113743354" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="1.1082040073496412E-25" />
+      <entry key="MS500" value="1.1309152816919415E-5" />
+      <entry key="S2" value="0.08910868302763626" />
+      <entry key="S5" value="0.6028471809039835" />
+      <entry key="S10" value="1.2463659802920122" />
+      <entry key="S30" value="2.1857399558895443" />
+      <entry key="S60" value="2.5519371403727695" />
+      <entry key="M2" value="2.764457304078453" />
+      <entry key="M5" value="2.9028362311158804" />
+      <entry key="M10" value="2.9509107257879834" />
+      <entry key="M15" value="2.967159822989606" />
+      <entry key="M30" value="2.9835226006716105" />
+      <entry key="H1" value="2.991746913476398" />
+      <entry key="H2" value="2.9958698526000576" />
+      <entry key="H4" value="2.9979340243357586" />
+      <entry key="D1" value="2.9996555453708136" />
+      <entry key="W1" value="2.9999507891249593" />
+    </decayedShown>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5,
+  &quot;fromUser&quot;: false
+}</component>
   <component name="ProjectId" id="3MNHi6zHxBR0qEUZOVj1aXkSYio" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -39,9 +108,49 @@
     "cidr.known.project.marker": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm"
   }
 }]]></component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.4.1f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;C:\Users\pau\Documents\Uni\4r\Desenvolupament Jocs 3D\Mario\3DP3_MeninoPau_QuerolGonzalo\3DP3_MeninoPau_QuerolGonzalo&quot; -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\pau\Documents\Uni\4r\Desenvolupament Jocs 3D\Mario\3DP3_MeninoPau_QuerolGonzalo\3DP3_MeninoPau_QuerolGonzalo" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="ENV_FILE_PATHS" value="" />
+      <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.4.1f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;C:\Users\pau\Documents\Uni\4r\Desenvolupament Jocs 3D\Mario\3DP3_MeninoPau_QuerolGonzalo\3DP3_MeninoPau_QuerolGonzalo&quot; -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\pau\Documents\Uni\4r\Desenvolupament Jocs 3D\Mario\3DP3_MeninoPau_QuerolGonzalo\3DP3_MeninoPau_QuerolGonzalo" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="ENV_FILE_PATHS" value="" />
+      <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" useMixedMode="false">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="coreClr" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to" type="UnityDevicePlayer" factoryName="UnityAttachToDevicePlayer">
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="ea68b385-346f-431f-a10d-155b215b0cd1" name="Changes" comment="" />
@@ -52,8 +161,12 @@
     </task>
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityProjectDiscoverer">
+    <option name="hasUnityReference" value="true" />
     <option name="unityProject" value="true" />
     <option name="unityProjectFolder" value="true" />
   </component>
