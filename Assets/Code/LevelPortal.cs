@@ -14,8 +14,13 @@ public class LevelPortal : MonoBehaviour
             MarioController player = GameController.GetGameController().GetPlayer();
             if (player != null)
             {
+                CharacterController l_CharacterController = player.GetComponent<CharacterController>();
+                l_CharacterController.enabled = false;
+
                 player.transform.position = m_SpawnPoint.position;
                 player.transform.rotation = m_SpawnPoint.rotation;
+
+                l_CharacterController.enabled = true;
             }
 
             l_GameController.SetLastLevelPlayed("");

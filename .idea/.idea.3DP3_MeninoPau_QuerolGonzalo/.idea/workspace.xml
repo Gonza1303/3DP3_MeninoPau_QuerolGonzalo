@@ -10,7 +10,18 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea68b385-346f-431f-a10d-155b215b0cd1" name="Changes" comment="" />
+    <list default="true" id="ea68b385-346f-431f-a10d-155b215b0cd1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.3DP3_MeninoPau_QuerolGonzalo/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.3DP3_MeninoPau_QuerolGonzalo/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.3DP3_MeninoPau_QuerolGonzalo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.3DP3_MeninoPau_QuerolGonzalo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/LevelPortal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/LevelPortal.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Mario/MarioController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Mario/MarioController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/VideoPlayer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/VideoPlayer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameController.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameController.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Castle.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Castle.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Cinema.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Cinema.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +30,7 @@
   <component name="CopilotPersistence">
     <persistenceIdMap>
       <entry key="_C:/Users/Gonzalo/Unity/3DP3_MeninoPau_QuerolGonzalo" value="3MO5lZcyJsNwKyXBDE46xup71I7" />
+      <entry key="_C:/Users/pau/Documents/Uni/4r/Desenvolupament Jocs 3D/Mario/3DP3_MeninoPau_QuerolGonzalo" value="3MQhubPxR0UiRlLZEcEj2kAFAbb" />
     </persistenceIdMap>
   </component>
   <component name="EmbeddingIndexingInfo">
@@ -26,6 +38,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/VideoTrigger.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="McpProjectServerCommands">
     <commands />
@@ -101,12 +117,13 @@
   <component name="ProjectSessionTemplates">
     <option name="panelTemplate">
       <template>
-        <option name="ensembleEnabled" value="false" />
+        <option name="ensembleEnabled" value="true" />
+        <option name="ensembleTierId" value="balance" />
         <option name="modeId" value="Agent" />
         <option name="model">
           <model>
             <option name="modelType" value="builtin_id" />
-            <option name="modelValue" value="auto" />
+            <option name="modelValue" value="ensemble" />
           </model>
         </option>
         <option name="targetType" value="BACKGROUND" />
@@ -136,7 +153,8 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -215,5 +233,9 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

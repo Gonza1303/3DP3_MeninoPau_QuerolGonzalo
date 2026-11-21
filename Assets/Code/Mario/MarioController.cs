@@ -28,6 +28,10 @@ public class MarioController : MonoBehaviour
     public Key m_DebugLockCursorKeyCode = Key.O;
     public bool m_AngleLocked;
     
+    bool m_GameOver;
+    bool m_IsBeingKilled;
+    bool m_MovementDisabled;
+    
     void Awake()
     {
         m_CharacterController = GetComponent<CharacterController>();
@@ -36,11 +40,14 @@ public class MarioController : MonoBehaviour
 
     void Start()
     {
+        GameController.GetGameController().SetPlayer(this);
         Cursor.lockState = CursorLockMode.Locked;
     }
     
     void Update()
     {
+        if (CantMove())
+            return;
         
         if (Keyboard.current[m_DebugLockAngleKeyCode].wasPressedThisFrame)
         {
@@ -158,5 +165,25 @@ public class MarioController : MonoBehaviour
                 GameController.GetGameController().EnterLevel(l_sceneName);
             }
         }
+    }
+    
+    public void SetGameOver(bool gameOver)
+    {
+        m_GameOver = gameOver;
+    }
+
+    public bool GetGameOver()
+    {
+        return m_GameOver;
+    }
+
+    public void DisableMovement (bool disable)
+    {
+        m_MovementDisabled = disable;
+    }
+    
+    public bool CantMove()
+    {
+        return m_GameOver || m_IsBeingKilled || m_MovementDisabled;
     }
 }
