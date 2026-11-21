@@ -1,5 +1,6 @@
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -7,10 +8,12 @@ public class GameController : MonoBehaviour
     public GameObject m_GameOverPanel;
     static GameController m_GameController = null;
     
-    public KeyCode m_RestartKeyCode = KeyCode.F5;
-    public KeyCode m_GameOverRestartKeyCode = KeyCode.Return;
+    public Key m_RestartKeyCode = Key.F5;
+    public Key m_GameOverRestartKeyCode = Key.Enter;
     
-    PortalController m_Player;
+    string m_LastLevelPlayed;
+    
+    MarioController m_Player;
     bool m_GameOver;
     
     /*
@@ -42,24 +45,25 @@ public class GameController : MonoBehaviour
     {
         if (m_GameOver)
         {
-            if (Input.GetKeyDown(m_GameOverRestartKeyCode))
+            if (Keyboard.current[m_GameOverRestartKeyCode].wasPressedThisFrame)
                 Restart();
 
             return;
         }
 
-        if(Input.GetKeyDown(m_RestartKeyCode))
+        
+        if(Keyboard.current[m_RestartKeyCode].wasPressedThisFrame)
             Restart();
 
         //UpdateLaserAudio();
     }
     
-    public void SetPlayer(PortalController player)
+    public void SetPlayer(MarioController player)
     {
         m_Player = player;
     }
 
-    public PortalController GetPlayer()
+    public MarioController GetPlayer()
     {
         return m_Player;
     }
@@ -68,46 +72,34 @@ public class GameController : MonoBehaviour
     {
         return m_GameController;
     }
+    
+    public void EnterLevel(string sceneName)
+    {
+        m_LastLevelPlayed = sceneName;
+        SceneManager.LoadScene(sceneName);
+    }
+    
+    public void ReturnToCastle(bool levelCompleted)
+    {
+        /*
+        if (levelCompleted && !string.IsNullOrEmpty(m_LastLevelPlayed))
+        {
+            if (!m_CompletedLevels.Contains(m_LastLevelPlayed))
+            {
+                m_CompletedLevels.Add(m_LastLevelPlayed);
+                m_StarsCount++;
+            }
+        }*/
+
+        m_GameOver = false;
+        SceneManager.LoadScene("Castle");
+    }
 
     public void Restart()
     {
-        //StopCurrentLaserAudio();
-
-        for (int i = 0; i < m_DestroyObjects.childCount; ++i)
-        {
-            Destroy(m_DestroyObjects.GetChild(i).gameObject);
-        }
-
         m_GameOver = false;
         SetGameOverPanel(false);
-        
-        /*
-        if (m_Companions.Count > 0)
-        {
-            foreach (Companion l_Companion in m_Companions)
-            {
-                Destroy(l_Companion.gameObject);
-            }
-            m_Companions.Clear();
-        }
-        
-        foreach (Turret l_Turret in m_Turrets)
-        {
-            if (l_Turret != null)
-            {
-                l_Turret.Restart();
-            }
-        }
-
-        foreach (RefractionCube l_RefractionCube in m_RefractionCubes)
-        {
-            if (l_RefractionCube != null)
-                l_RefractionCube.Restart();
-        }
-        */
-        
-        m_Player.Restart();
-        //SFXManager.Instance.PlaySFXClip(m_GameOverRestartSFX, transform, 3.0f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         StartCoroutine(m_Fade.FadeOut());
     }
 
@@ -229,7 +221,7 @@ public class GameController : MonoBehaviour
         m_GameOver = true;
         //StopCurrentLaserAudio();
         SetGameOverPanel(true);
-        m_Player.SetGameOver(true);
+        //m_Player.SetGameOver(true);
 
         /*
         foreach (Turret l_Turret in m_Turrets)
@@ -261,6 +253,16 @@ public class GameController : MonoBehaviour
     {
         if (m_GameOverPanel != null)
             m_GameOverPanel.SetActive(active);
+    }
+    
+    public string GetLastLevelPlayed()
+    {
+        return m_LastLevelPlayed;
+    }
+    
+    public void SetLastLevelPlayed(string levelName)
+    {
+        m_LastLevelPlayed = levelName;
     }
     
     /*

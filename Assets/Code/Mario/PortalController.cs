@@ -91,7 +91,7 @@ public class PortalController : MonoBehaviour
         m_StartPitch = m_PitchController.localEulerAngles.x;
         m_Pitch = m_StartPitch;
         Cursor.lockState = CursorLockMode.Locked;
-        GameController.GetGameController().SetPlayer(this);
+        //GameController.GetGameController().SetPlayer(this);
         WinImage.SetActive(false);
     }
 
@@ -242,6 +242,11 @@ public class PortalController : MonoBehaviour
         {
             WinImage.SetActive(true);
 			m_Win = true;
+        }
+        
+        else if (other.CompareTag("NextScene"))
+        {
+            SceneFlowManager.Instance.LoadNextScene();
         }
 	}
 

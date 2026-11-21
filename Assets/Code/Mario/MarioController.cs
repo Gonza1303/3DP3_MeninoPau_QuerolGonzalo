@@ -110,4 +110,53 @@ public class MarioController : MonoBehaviour
             m_VerticalSpeed = 0.0f;
 
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("DeadZone"))
+        {
+            //Kill(true);
+        }
+        /*
+        else if (other.CompareTag("Checkpoint"))
+        {
+            for (int i = 0; i < m_Checkpoints.Count; ++i)
+            {
+                Transform l_Checkpoint = m_Checkpoints[i];
+
+                if (l_Checkpoint == null)
+                {
+                    continue;
+                }
+
+                if (other.transform == l_Checkpoint || other.transform.IsChildOf(l_Checkpoint))
+                {
+                    if (i > m_CurrentCheckpointIndex)
+                    {
+                        m_CurrentCheckpointIndex = i;
+                        m_CheckpointDoors[i].SetActive(true);
+                        SFXManager.Instance.PlaySFXClip(m_CheckPointSFX, transform, 1.0f);
+                    }
+
+                    break;
+                }
+            }
+
+        }
+        
+        else if (other.CompareTag("Finish"))
+        {
+            WinImage.SetActive(true);
+            m_Win = true;
+        }*/
+        
+        else if (other.CompareTag("ScenePortal"))
+        {
+            string l_sceneName = other.gameObject.GetComponent<LevelPortal>().m_SceneToLoad;
+            if (l_sceneName != "")
+            {
+                GameController.GetGameController().EnterLevel(l_sceneName);
+            }
+        }
+    }
 }
