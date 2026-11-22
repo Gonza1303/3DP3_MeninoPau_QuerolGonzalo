@@ -11,7 +11,7 @@ public class MarioController : MonoBehaviour
     public float m_WalkSpeed = 4.0f;
     public float m_RunSpeed = 8.0f;
     public float m_RotationLerpPct = 10.0f;
-    public float m_VerticalSpeed = 2.0f;
+    public float m_VerticalSpeed ;
     public float m_JumpSpeed = 10.0f;
     public bool m_CanJump = true;
     
@@ -68,17 +68,18 @@ public class MarioController : MonoBehaviour
         Vector3 l_Direction = Vector3.zero;
         
         if (Keyboard.current[m_RightKeyControl].isPressed)
-            l_Direction = l_Right;
+            l_Direction += l_Right;
         else if (Keyboard.current[m_LeftKeyControl].isPressed)
-            l_Direction = -l_Right;
+            l_Direction += -l_Right;
         if(Keyboard.current[m_ForwardKeyControl].isPressed)
-            l_Direction = l_Forward;
+            l_Direction += l_Forward;
         else if (Keyboard.current[m_BackwardKeyControl].isPressed)
-            l_Direction = -l_Forward;
+            l_Direction += -l_Forward;
         
         bool l_IsMoving = l_Direction.sqrMagnitude > 0.5f;
         float l_Speed = m_WalkSpeed;
         float l_AnimatorSpeed = 0.0f;
+        float l_AnimatorVerticalSpeed = 0.0f;
         l_Direction.Normalize();
         
         if (l_IsMoving)
@@ -98,6 +99,7 @@ public class MarioController : MonoBehaviour
         if(Keyboard.current[m_JumpKeyControl].wasPressedThisFrame && m_CanJump)
         {
             m_VerticalSpeed = m_JumpSpeed;
+            l_AnimatorVerticalSpeed = m_JumpSpeed;
             m_CanJump = false;
         }
 
@@ -107,15 +109,24 @@ public class MarioController : MonoBehaviour
         m_VerticalSpeed += Physics.gravity.y * Time.deltaTime;
         l_Direction.y = m_VerticalSpeed * Time.deltaTime;
         
+        if(m_VerticalSpeed < 0)
+        {
+            m_CanJump = false;
+            l_AnimatorVerticalSpeed = m_VerticalSpeed;
+            //m_Animator.SetFloat("VerticalSpeed", l_AnimatorVerticalSpeed);
+        }
+
         CollisionFlags l_CollisionFlags = m_CharacterController.Move(l_Direction);
         if((l_CollisionFlags & CollisionFlags.Below) != 0)
         {
-            m_VerticalSpeed = 0.0f;
+            m_VerticalSpeed = -1.0f;
             m_CanJump = true;
+            l_AnimatorVerticalSpeed = 0.0f;
         }
         else if((l_CollisionFlags & CollisionFlags.Above) != 0 && m_VerticalSpeed > 0)
             m_VerticalSpeed = 0.0f;
 
+        m_Animator.SetFloat("VerticalSpeed", l_AnimatorVerticalSpeed);
     }
 
     void OnTriggerEnter(Collider other)
