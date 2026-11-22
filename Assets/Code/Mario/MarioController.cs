@@ -239,6 +239,9 @@ public class MarioController : MonoBehaviour
     public void DisableMovement (bool disable)
     {
         m_MovementDisabled = disable;
+        m_AngleLocked = disable;
+        Cursor.lockState = Cursor.lockState != CursorLockMode.Locked ? CursorLockMode.Locked : CursorLockMode.None;
+
     }
     
     public bool CantMove()

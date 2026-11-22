@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Cursor = UnityEngine.Cursor;
 
 public class PortalController : MonoBehaviour
@@ -169,11 +170,11 @@ public class PortalController : MonoBehaviour
         
         if (isLavaDeath)
         {
-            SFXManager.Instance.PlaySFXClip(m_LavaDeathsSFXs[UnityEngine.Random.Range(0, m_LavaDeathsSFXs.Count)], transform, 1.0f);
+            //AudioManager.Instance.PlaySFXClip(m_LavaDeathsSFXs[UnityEngine.Random.Range(0, m_LavaDeathsSFXs.Count)], transform, 1.0f);
         }
         else
         {
-            SFXManager.Instance.PlaySFXClip(m_LaserDeathSFXs[UnityEngine.Random.Range(0, m_LaserDeathSFXs.Count)], transform, 1.0f);
+            //AudioManager.Instance.PlaySFXClip(m_LaserDeathSFXs[UnityEngine.Random.Range(0, m_LaserDeathSFXs.Count)], transform, 1.0f);
         }
 
         m_IsBeingKilled = true;
@@ -229,7 +230,7 @@ public class PortalController : MonoBehaviour
                     {
                         m_CurrentCheckpointIndex = i;
                         m_CheckpointDoors[i].SetActive(true);
-                        SFXManager.Instance.PlaySFXClip(m_CheckPointSFX, transform, 1.0f);
+                        //AudioManager.Instance.PlaySFXClip(m_CheckPointSFX, transform, 1.0f);
                     }
 
                     break;
@@ -242,11 +243,6 @@ public class PortalController : MonoBehaviour
         {
             WinImage.SetActive(true);
 			m_Win = true;
-        }
-        
-        else if (other.CompareTag("NextScene"))
-        {
-            SceneFlowManager.Instance.LoadNextScene();
         }
 	}
 

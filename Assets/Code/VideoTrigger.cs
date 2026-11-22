@@ -12,6 +12,11 @@ public class VideoTrigger : MonoBehaviour
     public Key m_StopVideoKey = Key.Space;
     public Key m_ReturnToCastleKey = Key.Escape;
     
+    public Camera m_PlayerCamera;
+    public Camera m_CinemaCamera;
+
+    public GameObject m_Particles;
+    
     private bool m_AlreadyEntered;
     private bool m_AlreadyActive;
 
@@ -37,12 +42,14 @@ public class VideoTrigger : MonoBehaviour
     {
         if (Keyboard.current[m_ReturnToCastleKey].wasPressedThisFrame)
         {
+            SwitchCamera(false);
             m_VideoPlayer.Pause();
             SetPlayerMovementDisabled(false);
             
             if (m_AlreadyActive)
             {
                 m_AlreadyActive = false;
+                m_Particles.SetActive(true);
             }
             else
             {
@@ -55,6 +62,8 @@ public class VideoTrigger : MonoBehaviour
         if (m_AlreadyEntered && !m_AlreadyActive && Keyboard.current[m_StartVideoKey].wasPressedThisFrame)
         {
             m_AlreadyActive = true;
+            SwitchCamera(true);
+            m_Particles.SetActive(false);
             m_VideoPlayer.Play();
             SetPlayerMovementDisabled(true);
         }
@@ -92,9 +101,10 @@ public class VideoTrigger : MonoBehaviour
         }
     }
 
-    void OnVideoFinished(VideoPlayer vp)
+    void OnVideoFinished(VideoPlayer videoPlayer)
     {
         SetPlayerMovementDisabled(false);
+        SwitchCamera(false);
 
         // Quan s'acaben els 35 minuts, tornem automàticament al castell
         ReturnToCastle();
@@ -109,6 +119,12 @@ public class VideoTrigger : MonoBehaviour
     bool IsVideoPlaying()
     {
         return m_VideoPlayer.isPlaying;
+    }
+    
+    void SwitchCamera(bool watchingMovie)
+    {
+        m_CinemaCamera.gameObject.SetActive(watchingMovie);
+        m_PlayerCamera.gameObject.SetActive(!watchingMovie);
     }
 
     void ReturnToCastle()

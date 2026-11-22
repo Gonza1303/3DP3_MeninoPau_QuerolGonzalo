@@ -6,10 +6,12 @@ public class GameController : MonoBehaviour
 {
     public Transform m_DestroyObjects;
     public GameObject m_GameOverPanel;
+    public GameObject m_PauseMenuPanel;
     static GameController m_GameController = null;
     
     public Key m_RestartKeyCode = Key.F5;
     public Key m_GameOverRestartKeyCode = Key.Enter;
+    public Key m_PauseKeyCode = Key.P;
     
     string m_LastLevelPlayed;
     
@@ -51,8 +53,12 @@ public class GameController : MonoBehaviour
             return;
         }
 
+        if (Keyboard.current[m_PauseKeyCode].wasPressedThisFrame)
+        {
+            Pause(true);
+        }
         
-        if(Keyboard.current[m_RestartKeyCode].wasPressedThisFrame)
+        if (Keyboard.current[m_RestartKeyCode].wasPressedThisFrame)
             Restart();
 
         //UpdateLaserAudio();
@@ -93,6 +99,22 @@ public class GameController : MonoBehaviour
 
         m_GameOver = false;
         SceneManager.LoadScene("Castle");
+    }
+    
+    public void Pause(bool pause)
+    {
+        if (pause)
+        {
+            Time.timeScale = 0f;
+            m_PauseMenuPanel.SetActive(true);
+            m_Player.DisableMovement(true);
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            m_PauseMenuPanel.SetActive(false);
+            m_Player.DisableMovement(false);
+        }
     }
 
     public void Restart()
