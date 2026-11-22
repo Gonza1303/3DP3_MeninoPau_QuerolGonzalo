@@ -8,12 +8,25 @@ public class MarioController : MonoBehaviour
     Animator m_Animator;
     public Camera m_Camera;
 
+    [Header("HorizontalMovement")]
     public float m_WalkSpeed = 4.0f;
     public float m_RunSpeed = 8.0f;
     public float m_RotationLerpPct = 10.0f;
+    private Vector3 m_HorizontalVelocity = Vector3.zero;
+    
+    [Header("VerticalMovement")]
     public float m_VerticalSpeed ;
     public float m_JumpSpeed = 10.0f;
     public bool m_CanJump = true;
+    public bool m_IsGrounded = true;
+    public float m_AirControl = 2.0f;
+    
+    [Header("WallJump")]
+    public bool m_WallJump;
+    public float m_WallJumpForce = 6.0f;
+    public float m_WallJumpDamping = 4.0f;
+    public Vector3 m_WallNormal = Vector3.zero;
+    public Vector3 m_WallJumpVelocity = Vector3.zero;
     
     [Header("Input")] 
     public Key m_RightKeyControl = Key.D;
@@ -84,7 +97,7 @@ public class MarioController : MonoBehaviour
         
         if (l_IsMoving)
         {
-            if(Keyboard.current[m_RunKeyControl].isPressed)
+            if(Keyboard.current[m_RunKeyControl].isPressed && m_IsGrounded)
             {
                 l_Speed = m_RunSpeed;
                 l_AnimatorSpeed = 1.0f;
@@ -101,32 +114,67 @@ public class MarioController : MonoBehaviour
             m_VerticalSpeed = m_JumpSpeed;
             l_AnimatorVerticalSpeed = m_JumpSpeed;
             m_CanJump = false;
+            
+            if (m_WallJump)
+            {
+                m_WallJumpVelocity = m_WallNormal * m_WallJumpForce;
+                transform.rotation = Quaternion.LookRotation(m_WallNormal); 
+                m_WallJump = false;
+            }
         }
 
         m_Animator.SetFloat("Speed", l_AnimatorSpeed);
-
-        l_Direction *= l_Speed * Time.deltaTime;
-        m_VerticalSpeed += Physics.gravity.y * Time.deltaTime;
-        l_Direction.y = m_VerticalSpeed * Time.deltaTime;
         
-        if(m_VerticalSpeed < 0)
-        {
-            m_CanJump = false;
-            l_AnimatorVerticalSpeed = m_VerticalSpeed;
-            //m_Animator.SetFloat("VerticalSpeed", l_AnimatorVerticalSpeed);
-        }
+        Vector3 l_DesiredVelocity =  l_Direction * l_Speed;
 
-        CollisionFlags l_CollisionFlags = m_CharacterController.Move(l_Direction);
+        if (m_IsGrounded)
+            m_HorizontalVelocity = l_DesiredVelocity;
+        else
+            m_HorizontalVelocity = Vector3.Lerp(m_HorizontalVelocity, l_DesiredVelocity, m_AirControl * Time.deltaTime);
+        
+        Vector3 l_Movement = (m_HorizontalVelocity + m_WallJumpVelocity) * Time.deltaTime;
+        m_VerticalSpeed += Physics.gravity.y * Time.deltaTime;
+        l_Movement.y = m_VerticalSpeed * Time.deltaTime;
+        
+        m_WallJumpVelocity = Vector3.Lerp(m_WallJumpVelocity, Vector3.zero, m_WallJumpDamping * Time.deltaTime);
+
+        CollisionFlags l_CollisionFlags = m_CharacterController.Move(l_Movement);
         if((l_CollisionFlags & CollisionFlags.Below) != 0)
         {
             m_VerticalSpeed = -1.0f;
             m_CanJump = true;
+            m_WallJump = false;
+            m_IsGrounded = true;
             l_AnimatorVerticalSpeed = 0.0f;
         }
-        else if((l_CollisionFlags & CollisionFlags.Above) != 0 && m_VerticalSpeed > 0)
-            m_VerticalSpeed = 0.0f;
+        else
+        {
+            m_IsGrounded = false;
+            m_CanJump = false;
+            m_WallJump = false;
+            
+            if((l_CollisionFlags & CollisionFlags.Above) != 0 && m_VerticalSpeed > 0)
+                m_VerticalSpeed = 0.0f;
+            
+            if ((l_CollisionFlags & CollisionFlags.Sides) != 0)
+            {
+                m_CanJump = true;
+                m_WallJump = true;
+            }
+            l_AnimatorVerticalSpeed = m_VerticalSpeed;
+        }
 
         m_Animator.SetFloat("VerticalSpeed", l_AnimatorVerticalSpeed);
+    }
+    
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (Mathf.Abs(hit.normal.y) < 0.5f)
+        {
+            m_WallNormal = hit.normal;
+            m_WallNormal.y = 0.0f;
+            m_WallNormal.Normalize();
+        }
     }
 
     void OnTriggerEnter(Collider other)

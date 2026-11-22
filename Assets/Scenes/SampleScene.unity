@@ -776,6 +776,13 @@ MonoBehaviour:
   m_VerticalSpeed: 0
   m_JumpSpeed: 6
   m_CanJump: 1
+  m_IsGrounded: 1
+  m_AirControl: 2
+  m_WallJump: 0
+  m_WallJumpForce: 12
+  m_WallJumpDamping: 2
+  m_WallNormal: {x: 0, y: 0, z: 0}
+  m_WallJumpVelocity: {x: 0, y: 0, z: 0}
   m_RightKeyControl: 18
   m_LeftKeyControl: 15
   m_ForwardKeyControl: 37
