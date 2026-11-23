@@ -116,6 +116,14 @@ public class GameController : MonoBehaviour
             m_Player.DisableMovement(false);
         }
     }
+    
+    public void Exit()
+    {
+        Pause(false);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        SceneManager.LoadScene("MainMenu");
+    }
 
     public void Restart()
     {

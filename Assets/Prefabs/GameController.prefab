@@ -47,8 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameController
   m_DestroyObjects: {fileID: 2823070416411961065}
   m_GameOverPanel: {fileID: 0}
+  m_PauseMenuPanel: {fileID: 0}
   m_RestartKeyCode: 98
   m_GameOverRestartKeyCode: 2
+  m_PauseKeyCode: 30
 --- !u!1 &3323943773212935670
 GameObject:
   m_ObjectHideFlags: 0

@@ -3774,7 +3774,7 @@ Transform:
   m_GameObject: {fileID: 212354778}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 11.5}
+  m_LocalPosition: {x: 0, y: -0.31, z: 11.5}
   m_LocalScale: {x: 16, y: 9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5708,7 +5708,7 @@ Transform:
   m_GameObject: {fileID: 355812951}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0253, y: 0.01, z: 11.35}
+  m_LocalPosition: {x: -0.0253, y: -0.34, z: 11.35}
   m_LocalScale: {x: 15.967459, y: 9.032352, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40184,6 +40184,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 117485617}
+    - target: {fileID: 2098978443855902252, guid: 8a5105808db8ccc489f025f1af593a3f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 82449767}
+    - target: {fileID: 2098978443855902252, guid: 8a5105808db8ccc489f025f1af593a3f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Exit
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098978443855902252, guid: 8a5105808db8ccc489f025f1af593a3f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3818586738661486296, guid: 8a5105808db8ccc489f025f1af593a3f, type: 3}
       propertyPath: m_Name
       value: Canvas - Main
