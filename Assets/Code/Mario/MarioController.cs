@@ -222,9 +222,9 @@ public class MarioController : MonoBehaviour, IRestartGameElement
 
     void UpdatePunch()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame /*&& CanPunch()*/)
+        if (Mouse.current.leftButton.wasPressedThisFrame && CanPunch())
             Punch();
-    }
+    }   
     
     bool CanPunch()
     {
