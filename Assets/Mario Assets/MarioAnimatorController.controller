@@ -16,7 +16,7 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
-  m_ExitTime: 0.75
+  m_ExitTime: 0.1
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -79,9 +79,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc24960802ebe2c459dff20d8dd62393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  m_PunchType: 0
+  m_PunchType: 1
   m_StartPunchPct: 0.25
-  m_EndPunchPct: 0.75
+  m_EndPunchPct: 0.66
 --- !u!1107 &-3980176173102807725
 AnimatorStateMachine:
   serializedVersion: 7
@@ -219,9 +219,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 1
   serializedVersion: 3
-  m_TransitionDuration: 0.4371311
-  m_TransitionOffset: 0.020826459
-  m_ExitTime: 0.94090825
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.1
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc24960802ebe2c459dff20d8dd62393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PunchBehaviour
-  m_PunchType: 1
+  m_PunchType: 0
   m_StartPunchPct: 0.25
   m_EndPunchPct: 0.75
 --- !u!91 &9100000
@@ -449,9 +449,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 1
   serializedVersion: 3
-  m_TransitionDuration: 0.58980775
-  m_TransitionOffset: 0.17177612
-  m_ExitTime: 0.5398652
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.1
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0

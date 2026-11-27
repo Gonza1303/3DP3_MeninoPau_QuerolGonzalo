@@ -41,6 +41,9 @@ public class MarioController : MonoBehaviour, IRestartGameElement
     private int m_PunchId = 0;
     public float m_PunchComboTime = 1.0f;
     
+    [Header("Platform")]
+    public float m_PlatformMaxAngle = 30.0f;
+    Collider m_AttachedPlatform;
     
     [Header("Input")] 
     public Key m_RightKeyControl = Key.D;
@@ -264,6 +267,12 @@ public class MarioController : MonoBehaviour, IRestartGameElement
         {
             //Kill(true);
         }
+
+        if (other.CompareTag(("Elevator")))
+        {
+            if (CanAttachToPlatform(other))
+                AttachPlatform(other);
+        }
         /*
         else if (other.CompareTag("Checkpoint"))
         {
@@ -305,6 +314,52 @@ public class MarioController : MonoBehaviour, IRestartGameElement
                 GameController.GetGameController().EnterLevel(l_sceneName);
             }
         }
+    }
+
+    bool CanAttachToPlatform(Collider _Collider)
+    {
+        float l_DotAngle = Vector3.Dot(_Collider.transform.up, Vector3.up);
+        return l_DotAngle > Mathf.Cos(m_PlatformMaxAngle*Mathf.Deg2Rad);
+    }
+
+    void AttachPlatform(Collider _Collider)
+    {
+        m_AttachedPlatform = _Collider;
+        transform.SetParent(m_AttachedPlatform.transform);
+    }
+
+    void DetachPlatform()
+    {
+        m_AttachedPlatform = null;
+        var l_Euler = transform.rotation.eulerAngles;
+        l_Euler.y = 0.0f;
+        l_Euler.z = 0.0f;
+        transform.rotation = Quaternion.Euler(l_Euler);
+        transform.SetParent(null);
+    }
+
+    void UpdateAttachedPlatform()
+    {
+        if (m_AttachedPlatform != null)
+        {
+            Vector3 l_Euler = transform.rotation.eulerAngles;
+            l_Euler.y = 0.0f;
+            l_Euler.z = 0.0f;
+            transform.rotation = Quaternion.Euler(l_Euler);
+        }
+    }
+    
+    void OnTriggerExit(Collider other)
+    {
+        if (other == m_AttachedPlatform)
+        {
+            DetachPlatform();
+        }
+    }
+
+    void LateUpdate()
+    {
+        UpdateAttachedPlatform();
     }
     
     public void SetGameOver(bool gameOver)
