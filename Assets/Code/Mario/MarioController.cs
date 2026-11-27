@@ -3,8 +3,10 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
     
 [DefaultExecutionOrder(-100)]
-public class MarioController : MonoBehaviour
+public class MarioController : MonoBehaviour, IRestartGameElement
 {
+    Vector3 m_StartPosition;
+    Quaternion m_StartRotation;
     CharacterController m_CharacterController;
     Animator m_Animator;
     public Camera m_Camera;
@@ -47,6 +49,7 @@ public class MarioController : MonoBehaviour
     public Key m_BackwardKeyControl = Key.S;
     public Key m_RunKeyControl = Key.LeftShift;
     public Key m_JumpKeyControl = Key.Space;
+    public Key m_RestartDebugKeyControl = Key.R;
     //public float m_LongJumpKeyControl = 0;
     
     [Header("Collider")]
@@ -73,6 +76,13 @@ public class MarioController : MonoBehaviour
     {
         GameController.GetGameController().SetPlayer(this);
         Cursor.lockState = CursorLockMode.Locked;
+        m_RightHandCollider.SetActive(false);
+        m_LeftHandCollider.SetActive(false);
+        m_RightFootCollider.SetActive(false);
+        
+        m_StartPosition = transform.position;
+        m_StartRotation = transform.rotation;
+        GameController.GetGameController().AddRestartGameElement(this);
     }
     
     void Update()
@@ -158,6 +168,11 @@ public class MarioController : MonoBehaviour
         
         UpdatePunch();
         
+        if(Keyboard.current[m_RestartDebugKeyControl].wasPressedThisFrame)
+        {
+            GameController.GetGameController().RestartGame();
+        }
+
         if (m_IsGrounded)
             m_HorizontalVelocity = l_DesiredVelocity;
         else
@@ -313,5 +328,13 @@ public class MarioController : MonoBehaviour
     public bool CantMove()
     {
         return m_GameOver || m_IsBeingKilled || m_MovementDisabled;
+    }
+
+    public void RestartGame()
+    {
+        m_CharacterController.enabled = false;
+        transform.position = m_StartPosition;
+        transform.rotation = m_StartRotation;
+        m_CharacterController.enabled = true;
     }
 }

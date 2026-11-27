@@ -1,7 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
+public interface IRestartGameElement
+{
+    void RestartGame();
+}
 public class GameController : MonoBehaviour
 {
     public Transform m_DestroyObjects;
@@ -18,6 +23,8 @@ public class GameController : MonoBehaviour
     MarioController m_Player;
     bool m_GameOver;
     
+    
+    List<IRestartGameElement> m_RestartGameElements = new List<IRestartGameElement>();
     /*
     Turret m_CurrentTurretLaserAudio;
     WallLaser m_CurrentWallLaserAudio;
@@ -33,8 +40,27 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        m_GameController = this;
+        if(m_GameController==null)
+        {
+            m_GameController = this;
+            GameObject.DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            GameObject.Destroy(this);
+        }
         SetGameOverPanel(false);
+    }
+
+    public void RestartGame()
+    {
+        foreach (IRestartGameElement l_RestartGameElement in m_RestartGameElements)
+            l_RestartGameElement.RestartGame();
+    }
+
+    public void AddRestartGameElement(IRestartGameElement l_RestartGameElement)
+    {
+        m_RestartGameElements.Add(l_RestartGameElement);
     }
 
     private void OnDestroy()
