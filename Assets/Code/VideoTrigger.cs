@@ -25,16 +25,13 @@ public class VideoTrigger : MonoBehaviour
         if (m_VideoPlayer == null)
             m_VideoPlayer = GetComponent<VideoPlayer>();
 
-        // 1. Construïm la ruta cap a Assets/StreamingAssets/TetravexAiPs.mp4
         string videoPath = Path.Combine(Application.streamingAssetsPath, m_VideoFileName);
 
-        // 2. Configurem la URL i els esdeveniments
         m_VideoPlayer.source = VideoSource.Url;
         m_VideoPlayer.url = videoPath;
         
         m_VideoPlayer.loopPointReached += OnVideoFinished;
 
-        // 3. Pre-carreguem els primers fotogrames abans d'engegar
         m_VideoPlayer.Prepare();
     }
     

@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[DefaultExecutionOrder(100)]
 public class LevelPortal : MonoBehaviour
 {
     public string m_SceneToLoad;
@@ -23,7 +24,7 @@ public class LevelPortal : MonoBehaviour
                 l_CharacterController.enabled = true;
             }
 
-            l_GameController.SetLastLevelPlayed("");
+            l_GameController.SetLastLevelPlayed(m_SceneToLoad);
         }
     }
 }

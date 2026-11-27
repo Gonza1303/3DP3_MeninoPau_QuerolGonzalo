@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
     
+[DefaultExecutionOrder(-100)]
 public class MarioController : MonoBehaviour
 {
     CharacterController m_CharacterController;

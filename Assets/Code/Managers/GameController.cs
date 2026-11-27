@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour
     public Key m_GameOverRestartKeyCode = Key.Enter;
     public Key m_PauseKeyCode = Key.P;
     
-    string m_LastLevelPlayed;
+    static string m_LastLevelPlayed;
     
     MarioController m_Player;
     bool m_GameOver;
@@ -33,14 +33,14 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        if (m_GameController == null)
-        {
-            m_GameController = this;
-            DontDestroyOnLoad(gameObject);
-            SetGameOverPanel(false);
-        }
-        else
-            Destroy(gameObject);
+        m_GameController = this;
+        SetGameOverPanel(false);
+    }
+
+    private void OnDestroy()
+    {
+        if (m_GameController == this)
+            m_GameController = null;
     }
     
     public void Update()
@@ -78,7 +78,7 @@ public class GameController : MonoBehaviour
     {
         return m_GameController;
     }
-    
+
     public void EnterLevel(string sceneName)
     {
         m_LastLevelPlayed = sceneName;
@@ -117,9 +117,15 @@ public class GameController : MonoBehaviour
         }
     }
     
+    public void Resume()
+    {
+        Pause(false);
+    }
+
     public void Exit()
     {
         Pause(false);
+        m_LastLevelPlayed = "";
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         SceneManager.LoadScene("MainMenu");
