@@ -155,7 +155,7 @@ public class MarioController : MonoBehaviour, IRestartGameElement
 
             if (Mouse.current.rightButton.isPressed)
             {
-                m_VerticalSpeed -= m_LongJumpVelocity;
+                //m_VerticalSpeed -= m_LongJumpVelocity;
                 m_LongJump = true;
             }
         }
@@ -165,7 +165,6 @@ public class MarioController : MonoBehaviour, IRestartGameElement
         if (m_LongJump)
         {
             l_Speed += m_LongJumpVelocity;
-            m_LongJump = false;
         }
         Vector3 l_DesiredVelocity =  l_Direction * l_Speed;
         
@@ -194,6 +193,7 @@ public class MarioController : MonoBehaviour, IRestartGameElement
             m_CanJump = true;
             m_WallJump = false;
             m_IsGrounded = true;
+            m_LongJump = false;
             l_AnimatorVerticalSpeed = 0.0f;
         }
         else
@@ -202,16 +202,24 @@ public class MarioController : MonoBehaviour, IRestartGameElement
             m_CanJump = false;
             m_WallJump = false;
 
-            if((l_CollisionFlags & CollisionFlags.Above) != 0 && m_VerticalSpeed > 0)
+            if ((l_CollisionFlags & CollisionFlags.Above) != 0 && m_VerticalSpeed > 0)
+            {
                 m_VerticalSpeed = 0.0f;
-            
+                m_LongJump = false;
+            }
+
             if ((l_CollisionFlags & CollisionFlags.Sides) != 0)
             {
                 m_CanJump = true;
                 m_WallJump = true;
+                m_LongJump = false;
                 if(m_VerticalSpeed > 0)
                     m_VerticalSpeed = 0.0f;
                 m_Gravity = Physics.gravity.y / m_WallGravityReduction;
+            }
+            else
+            {
+                m_Gravity = Physics.gravity.y;
             }
 
             l_AnimatorVerticalSpeed = m_VerticalSpeed;
