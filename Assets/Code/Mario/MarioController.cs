@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
@@ -27,6 +28,7 @@ public class MarioController : MonoBehaviour, IRestartGameElement
     public float m_AirControl = 2.0f;
     float m_Gravity = Physics.gravity.y;
     public float m_WallGravityReduction = 3.0f;
+    public float m_MaxWallVelocity = 2.0f;
     
     [Header("WallJump")]
     public bool m_WallJump;
@@ -194,6 +196,7 @@ public class MarioController : MonoBehaviour, IRestartGameElement
             m_WallJump = false;
             m_IsGrounded = true;
             m_LongJump = false;
+            m_Gravity = Physics.gravity.y;
             l_AnimatorVerticalSpeed = 0.0f;
         }
         else
@@ -215,6 +218,7 @@ public class MarioController : MonoBehaviour, IRestartGameElement
                 m_LongJump = false;
                 if(m_VerticalSpeed > 0)
                     m_VerticalSpeed = 0.0f;
+                m_VerticalSpeed = Math.Max(-m_MaxWallVelocity, m_VerticalSpeed);
                 m_Gravity = Physics.gravity.y / m_WallGravityReduction;
             }
             else
