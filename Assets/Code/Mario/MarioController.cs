@@ -14,6 +14,8 @@ public class MarioController : MonoBehaviour
     public float m_RunSpeed = 8.0f;
     public float m_RotationLerpPct = 10.0f;
     private Vector3 m_HorizontalVelocity = Vector3.zero;
+    bool m_LongJump = false;
+    public float m_LongJumpVelocity = 4.0f;
     
     [Header("VerticalMovement")]
     public float m_VerticalSpeed ;
@@ -21,6 +23,8 @@ public class MarioController : MonoBehaviour
     public bool m_CanJump = true;
     public bool m_IsGrounded = true;
     public float m_AirControl = 2.0f;
+    float m_Gravity = Physics.gravity.y;
+    public float m_WallGravityReduction = 3.0f;
     
     [Header("WallJump")]
     public bool m_WallJump;
@@ -29,6 +33,13 @@ public class MarioController : MonoBehaviour
     public Vector3 m_WallNormal = Vector3.zero;
     public Vector3 m_WallJumpVelocity = Vector3.zero;
     
+    [Header("Punch")]
+    public float m_LastPunchFinishedTime = 0.0f;
+    bool m_IsPunching = false;
+    private int m_PunchId = 0;
+    public float m_PunchComboTime = 1.0f;
+    
+    
     [Header("Input")] 
     public Key m_RightKeyControl = Key.D;
     public Key m_LeftKeyControl = Key.A;
@@ -36,6 +47,12 @@ public class MarioController : MonoBehaviour
     public Key m_BackwardKeyControl = Key.S;
     public Key m_RunKeyControl = Key.LeftShift;
     public Key m_JumpKeyControl = Key.Space;
+    //public float m_LongJumpKeyControl = 0;
+    
+    [Header("Collider")]
+    public GameObject m_LeftHandCollider;
+    public GameObject m_RightHandCollider;
+    public GameObject m_RightFootCollider;
     
     [Header("Angle Locking")]
     public Key m_DebugLockAngleKeyCode = Key.I;
@@ -122,19 +139,32 @@ public class MarioController : MonoBehaviour
                 transform.rotation = Quaternion.LookRotation(m_WallNormal); 
                 m_WallJump = false;
             }
+
+            if (Mouse.current.rightButton.isPressed)
+            {
+                m_VerticalSpeed -= m_LongJumpVelocity;
+                m_LongJump = true;
+            }
         }
 
         m_Animator.SetFloat("Speed", l_AnimatorSpeed);
         
+        if (m_LongJump)
+        {
+            l_Speed += m_LongJumpVelocity;
+            m_LongJump = false;
+        }
         Vector3 l_DesiredVelocity =  l_Direction * l_Speed;
-
+        
+        UpdatePunch();
+        
         if (m_IsGrounded)
             m_HorizontalVelocity = l_DesiredVelocity;
         else
             m_HorizontalVelocity = Vector3.Lerp(m_HorizontalVelocity, l_DesiredVelocity, m_AirControl * Time.deltaTime);
         
         Vector3 l_Movement = (m_HorizontalVelocity + m_WallJumpVelocity) * Time.deltaTime;
-        m_VerticalSpeed += Physics.gravity.y * Time.deltaTime;
+        m_VerticalSpeed += m_Gravity * Time.deltaTime;
         l_Movement.y = m_VerticalSpeed * Time.deltaTime;
         
         m_WallJumpVelocity = Vector3.Lerp(m_WallJumpVelocity, Vector3.zero, m_WallJumpDamping * Time.deltaTime);
@@ -153,7 +183,7 @@ public class MarioController : MonoBehaviour
             m_IsGrounded = false;
             m_CanJump = false;
             m_WallJump = false;
-            
+
             if((l_CollisionFlags & CollisionFlags.Above) != 0 && m_VerticalSpeed > 0)
                 m_VerticalSpeed = 0.0f;
             
@@ -161,11 +191,46 @@ public class MarioController : MonoBehaviour
             {
                 m_CanJump = true;
                 m_WallJump = true;
+                if(m_VerticalSpeed > 0)
+                    m_VerticalSpeed = 0.0f;
+                m_Gravity = Physics.gravity.y / m_WallGravityReduction;
             }
+
             l_AnimatorVerticalSpeed = m_VerticalSpeed;
         }
 
         m_Animator.SetFloat("VerticalSpeed", l_AnimatorVerticalSpeed);
+    }
+
+    void UpdatePunch()
+    {
+        if (Mouse.current.leftButton.wasPressedThisFrame /*&& CanPunch()*/)
+            Punch();
+    }
+    
+    bool CanPunch()
+    {
+        return !m_IsPunching;
+    }
+
+     public void SetIsPunching(bool IsPunching)
+    {
+        m_IsPunching = IsPunching;
+        if(!IsPunching)
+            m_LastPunchFinishedTime = Time.time;
+    }
+    
+    void Punch()
+    {
+        SetIsPunching(true);
+        float l_TotalTimeSinceLastPunch = Time.time - m_LastPunchFinishedTime;
+        if (l_TotalTimeSinceLastPunch <= m_PunchComboTime)
+            m_PunchId = (m_PunchId+1)%3;
+        else
+            m_PunchId = 0;
+
+        m_Animator.SetTrigger("Punch");
+        m_Animator.SetInteger("PunchId", m_PunchId);
     }
     
     void OnControllerColliderHit(ControllerColliderHit hit)
