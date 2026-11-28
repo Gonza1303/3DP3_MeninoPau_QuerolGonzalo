@@ -22,13 +22,21 @@ public class MarioController : MonoBehaviour, IRestartGameElement
     
     [Header("VerticalMovement")]
     public float m_VerticalSpeed ;
+    float m_Gravity = Physics.gravity.y;
+    public float m_WallGravityReduction = 3.0f;
+    public float m_MaxWallVelocity = 2.0f;
+    
+    [Header("Jump")]
     public float m_JumpSpeed = 10.0f;
     public bool m_CanJump = true;
     public bool m_IsGrounded = true;
     public float m_AirControl = 2.0f;
-    float m_Gravity = Physics.gravity.y;
-    public float m_WallGravityReduction = 3.0f;
-    public float m_MaxWallVelocity = 2.0f;
+    public float m_LastJumpFinishedTime  = 0.0f;
+    public bool m_IsJumping = false;
+    private int m_JumpId = 0;
+    public float m_JumpComboTime = 0.5f;
+    public float m_DoubleJumpSpeed = 5.0f;
+    public float m_TripleJumpSpeed = 10.0f;
     
     [Header("WallJump")]
     public bool m_WallJump;
@@ -36,6 +44,10 @@ public class MarioController : MonoBehaviour, IRestartGameElement
     public float m_WallJumpDamping = 4.0f;
     public Vector3 m_WallNormal = Vector3.zero;
     public Vector3 m_WallJumpVelocity = Vector3.zero;
+    
+    [Header("LongJump")]
+    public float m_LongJumpVerticalVelocity = 2.0f;
+    public int m_LongJumpId = 3;
     
     [Header("Punch")]
     public float m_LastPunchFinishedTime = 0.0f;
@@ -147,6 +159,7 @@ public class MarioController : MonoBehaviour, IRestartGameElement
             m_VerticalSpeed = m_JumpSpeed;
             l_AnimatorVerticalSpeed = m_JumpSpeed;
             m_CanJump = false;
+            m_IsJumping = true;
             
             if (m_WallJump)
             {
@@ -154,11 +167,16 @@ public class MarioController : MonoBehaviour, IRestartGameElement
                 transform.rotation = Quaternion.LookRotation(m_WallNormal); 
                 m_WallJump = false;
             }
-
-            if (Mouse.current.rightButton.isPressed)
+            else if (Mouse.current.rightButton.isPressed)
             {
-                //m_VerticalSpeed -= m_LongJumpVelocity;
+                m_VerticalSpeed -= m_LongJumpVerticalVelocity;
                 m_LongJump = true;
+                m_Animator.SetTrigger("Jump");
+                m_Animator.SetInteger("JumpId", m_LongJumpId);
+            }
+            else
+            {
+                UpdateJumpCombo();
             }
         }
 
@@ -196,6 +214,7 @@ public class MarioController : MonoBehaviour, IRestartGameElement
             m_WallJump = false;
             m_IsGrounded = true;
             m_LongJump = false;
+            SetIsJumping(false);
             m_Gravity = Physics.gravity.y;
             l_AnimatorVerticalSpeed = 0.0f;
         }
@@ -216,6 +235,7 @@ public class MarioController : MonoBehaviour, IRestartGameElement
                 m_CanJump = true;
                 m_WallJump = true;
                 m_LongJump = false;
+                SetIsJumping(false);
                 if(m_VerticalSpeed > 0)
                     m_VerticalSpeed = 0.0f;
                 m_VerticalSpeed = Math.Max(-m_MaxWallVelocity, m_VerticalSpeed);
@@ -232,6 +252,31 @@ public class MarioController : MonoBehaviour, IRestartGameElement
         m_Animator.SetFloat("VerticalSpeed", l_AnimatorVerticalSpeed);
     }
 
+    void UpdateJumpCombo()
+    {
+        SetIsJumping(true);
+        float l_TotalTimeSinceLastJump = Time.time - m_LastJumpFinishedTime;
+        if (l_TotalTimeSinceLastJump <= m_JumpComboTime)
+            m_JumpId = (m_JumpId+1)%3;
+        else
+            m_JumpId = 0;
+
+        if (m_JumpId == 1)
+            m_VerticalSpeed += m_DoubleJumpSpeed;
+        else if(m_JumpId == 2)
+            m_VerticalSpeed += m_TripleJumpSpeed;
+        
+        m_Animator.SetTrigger("Jump");
+        m_Animator.SetInteger("JumpId", m_JumpId);
+    }
+
+    void SetIsJumping(bool IsJumping)
+    {
+        if (m_IsJumping && !IsJumping)
+            m_LastJumpFinishedTime = Time.time;
+
+        m_IsJumping = IsJumping;
+    }
     void UpdatePunch()
     {
         if (Mouse.current.leftButton.wasPressedThisFrame && CanPunch())
@@ -240,7 +285,7 @@ public class MarioController : MonoBehaviour, IRestartGameElement
     
     bool CanPunch()
     {
-        return !m_IsPunching;
+        return !m_IsPunching && !m_IsJumping;
     }
 
      public void SetIsPunching(bool IsPunching)
